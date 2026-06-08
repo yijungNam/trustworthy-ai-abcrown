@@ -1,0 +1,22 @@
+general:
+  device: cpu
+model:
+  onnx_path: mnist_fc.onnx
+  input_shape: [-1, 1, 28, 28]
+data:
+  dataset: MNIST
+  start: 0
+  end: 10
+  std: [1.]
+  mean: [0.]
+specification:
+  epsilon: 0.01
+  norm: .inf
+attack:
+  pgd_order: skip
+solver:
+  batch_size: 64
+  beta-crown:
+    iteration: 20
+bab:
+  timeout: 100
